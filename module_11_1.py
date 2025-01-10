@@ -1,3 +1,5 @@
+import os
+import sys
 from time import time, sleep
 import requests
 from PIL import Image, ImageTk
@@ -110,6 +112,8 @@ if strin=='':
     strin='Природа'
 url='https://www.youtube.com/results?search_query='
 UT1=Utumba(url,strin)
+import os
+os._exit(0)
 
 
 
