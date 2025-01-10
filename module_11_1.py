@@ -47,9 +47,9 @@ class Utumba():
         if self.full.is_set() == False:
             self.label.configure(
                 text=f'Запрос={self.query} Threads={self.counter} Images={self.shown} Время:{round(now, 1)}')
-        self.root.after(int(random() * 1000), self.update)
+        self.root.after(int(random() * 1000), self.update) # Обновляем окно раз в сек
 
-    # поиск ссылки в коде страницы возвращенной ютуб по  текстовому запросу
+    # поиск ссылки в коде страницы возвращенной ютуб по текстовому запросу
     def get_img_url(self, num):
         cont_str = str(self.data)
         counter = 0
@@ -82,7 +82,7 @@ class Utumba():
             else:
                 img = Image.open(raw)
                 if img.width >= 320:
-                    img_res = img.resize((320, 240))
+                    img_res = img.resize((320, 240)) #масштабируем картинку под размер плитки
                     if not url_str in self.url_list and self.full.is_set() == False:
                         self.lock.acquire()  # Включение блокировки при добавлении новой плитки
                         self.img.paste(img_res, ((self.shown + 4) % 4 * 320, 240 * (self.shown // 4)))
