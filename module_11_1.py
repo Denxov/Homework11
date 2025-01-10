@@ -90,7 +90,7 @@ class Utumba():
                         self.shown += 1
                         self.url_list.append(url_str)
                         self.lock.release()
-                        if self.shown >= 12: self.full.set()
+                        if self.shown >= 12: self.full.set()# установка флага заполнения поля 12 плиток
 
     def go(self, num_threads):
         for i in range(num_threads):
