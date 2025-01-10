@@ -83,7 +83,7 @@ class Utumba():
                 img = Image.open(raw)
                 if img.width >= 320:
                     img_res = img.resize((320, 240)) #масштабируем картинку под размер плитки
-                    if not url_str in self.url_list and self.full.is_set() == False:
+                    if not url_str in self.url_list and self.full.is_set() == False:# проверяем на дубли и заполненность
                         self.lock.acquire()  # Включение блокировки при добавлении новой плитки
                         self.img.paste(img_res, ((self.shown + 4) % 4 * 320, 240 * (self.shown // 4)))
                         img.close()
