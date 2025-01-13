@@ -31,7 +31,7 @@ class Utumba():
         # посылаем запрос в Ютуб с использованием библиотеки Requests
         while self.data == '':
             try:
-                self.data = requests.get(url + query, timeout=2.7).text
+                self.data = requests.get(url + query, timeout=random()*5.7).text
             except Exception as err:
                 print(f"Unexpected {err=}, {type(err)=}")
                 sleep(random() * 2)
@@ -61,7 +61,7 @@ class Utumba():
             pos_in_content = cont_str.find('https://i.ytimg.com/vi', pos_in_content + 1)
             counter += 1
         if pos_in_content != -1:
-            endpos = cont_str.find('.jpg' or '.png', pos_in_content)
+            endpos = cont_str.find('.jpg', pos_in_content)
             url_str = cont_str[pos_in_content:endpos + 4]
             if len(url_str) < 100:
                 return url_str
@@ -111,6 +111,7 @@ strin=input('Введите текстовый запрос для отправ�
 if strin=='':
     strin='Природа'
 url='https://www.youtube.com/results?search_query='
+
 UT1=Utumba(url,strin)
 import os
 os._exit(0)
