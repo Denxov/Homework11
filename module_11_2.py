@@ -17,3 +17,4 @@ print(introspection_info(12))
 print(introspection_info('dee'))
 print(introspection_info(introspection_info))
 print(introspection_info(FirstClass()))
+
